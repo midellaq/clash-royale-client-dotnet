@@ -20,8 +20,12 @@ namespace Pekka.ClashRoyaleApi.Client.Models.PlayerModels
 
         public int[] PrincessTowersHitPoints { get; set; }
 
+        public double ElixirLeaked { get; set; }
+
         public PlayerBattleLogClan Clan { get; set; }
 
         public PlayerBattleLogCard[] Cards { get; set; }
+
+        public PlayerBattleLogRound[] Rounds { get; set; }
     }
 }

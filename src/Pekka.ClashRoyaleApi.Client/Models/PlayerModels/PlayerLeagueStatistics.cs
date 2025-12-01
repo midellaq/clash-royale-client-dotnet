@@ -6,10 +6,10 @@ namespace Pekka.ClashRoyaleApi.Client.Models.PlayerModels
     [JsonObject(NamingStrategyType = typeof(CamelCaseNamingStrategy))]
     public class PlayerLeagueStatistics
     {
-        public PlayerCurrentSeason CurrentSeason { get; set; }
+        public PlayerSeasonResults CurrentSeason { get; set; }
 
-        public PlayerPreviousSeason PreviousSeason { get; set; }
+        public PlayerSeasonResults PreviousSeason { get; set; }
 
-        public PlayerBestSeason BestSeason { get; set; }
+        public PlayerSeasonResults BestSeason { get; set; }
     }
 }

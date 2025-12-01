@@ -9,5 +9,9 @@ namespace Pekka.ClashRoyaleApi.Client.Models.PlayerModels
     public class PlayerIconUrl : IIconUrl
     {
         public string Medium { get; set; }
+
+        public string Large { get; set; }
+
+        public string Small { get; set; }
     }
 }

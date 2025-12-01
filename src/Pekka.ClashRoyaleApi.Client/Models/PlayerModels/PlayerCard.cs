@@ -15,6 +15,8 @@ namespace Pekka.ClashRoyaleApi.Client.Models.PlayerModels
 
         public int Level { get; set; }
 
+        public int StarLevel { get; set; }
+
         public int MaxLevel { get; set; }
 
         public int Count { get; set; }

@@ -86,6 +86,15 @@ namespace Pekka.ClashRoyaleApi.Client.Clients
             return apiResponse;
         }
 
+        public async Task<IApiResponse<ClanCurrentRiverRace>> GetCurrentRiverRaceResponseAsync(string clanTag)
+        {
+            Ensure.ArgumentNotNullOrEmptyString(clanTag, nameof(clanTag));
+
+            IApiResponse<ClanCurrentRiverRace> apiResponse = await RestApiClient.GetApiResponseAsync<ClanCurrentRiverRace>(UrlPathBuilder.GetCurrentRiverRaceUrl(clanTag));
+
+            return apiResponse;
+        }
+
         public async Task<PagedClans> SearchClanAsync(ClanFilter clanApiFilter)
         {
             IApiResponse<PagedClans> apiResponse = await SearchClanResponseAsync(clanApiFilter);
@@ -120,5 +129,36 @@ namespace Pekka.ClashRoyaleApi.Client.Clients
 
             return apiResponse.Model;
         }
+
+        public async Task<ClanCurrentRiverRace> GetCurrentRiverRace(string clanTag)
+        {
+            IApiResponse<ClanCurrentRiverRace> apiResponse = await GetCurrentRiverRaceResponseAsync(clanTag);
+
+            return apiResponse.Model;
+        }
+
+        public async Task<PagedRiverRaceLog> GetRiverRaceLogAsync(string clanTag, RiverRaceLogFilter riverRaceLogFilter = null)
+        {
+            IApiResponse<PagedRiverRaceLog> apiResponse = await GetRiverRaceLogResponseAsync(clanTag, riverRaceLogFilter);
+
+            return apiResponse.Model;
+        }
+
+        public async Task<IApiResponse<PagedRiverRaceLog>> GetRiverRaceLogResponseAsync(string clanTag, RiverRaceLogFilter riverRaceLogFilter = null)
+        {
+            Ensure.ArgumentNotNullOrEmptyString(clanTag, nameof(clanTag));
+
+            if (riverRaceLogFilter?.After != null && riverRaceLogFilter.Before != null)
+            {
+                throw new InvalidOperationException("Only after or before can be specified for a request, not both.");
+            }
+
+            IApiResponse<PagedRiverRaceLog> apiResponse = await RestApiClient.GetApiResponseAsync<PagedRiverRaceLog>(
+                UrlPathBuilder.GetRiverRaceLogUrl(clanTag), riverRaceLogFilter?.ToQueryParams());
+
+            return apiResponse;
+        }
+
+
     }
 }

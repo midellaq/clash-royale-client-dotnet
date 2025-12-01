@@ -10,7 +10,11 @@ namespace Pekka.ClashRoyaleApi.Client.Models.PlayerModels
 
         public string BattleTime { get; set; }
 
+        public string BoatBattleSide { get; set; }
+        public bool BoatBattleWon { get; set; }
+
         public bool IsLadderTournament { get; set; }
+        public bool IsHostedMatch { get; set; }
 
         public PlayerBattleLogArena Arena { get; set; }
 
@@ -23,9 +27,14 @@ namespace Pekka.ClashRoyaleApi.Client.Models.PlayerModels
         public PlayerBattleLogTeam[] Opponent { get; set; }
 
         public string ChallengeTitle { get; set; }
+        public string TournamentTag { get; set; }
 
         public int? ChallengeId { get; set; }
 
         public int? ChallengeWinCountBefore { get; set; }
+        public int NewTowersDestroyed { get; set; }
+        public int PrevTowersDestroyed { get; set; }
+        public int RemainingTowers { get; set; }
+
     }
 }

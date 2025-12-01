@@ -12,6 +12,8 @@ namespace Pekka.ClashRoyaleApi.Client.Models.PlayerModels
 
         public int ExpLevel { get; set; }
 
+        public int ExpPoints { get; set; }
+        public int StarPoints { get; set; }
         public int Trophies { get; set; }
 
         public int BestTrophies { get; set; }

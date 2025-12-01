@@ -21,6 +21,10 @@ namespace Pekka.ClashRoyaleApi.Client.Contracts
         Task<IApiResponse<PagedClanWarLogs>> GetWarLogResponseAsync(string clanTag, ClanWarLogFilter clanWarLogFilter = null);
 
         Task<IApiResponse<ClanCurrentWar>> GetCurrentWarResponseAsync(string clanTag);
+        Task<IApiResponse<ClanCurrentRiverRace>> GetCurrentRiverRaceResponseAsync(string clanTag);
+
+        Task<IApiResponse<PagedRiverRaceLog>> GetRiverRaceLogResponseAsync(string clanTag, RiverRaceLogFilter riverRaceLogFilter = null);
+
     }
 
     public interface IClanClientWithModel
@@ -34,5 +38,8 @@ namespace Pekka.ClashRoyaleApi.Client.Contracts
         Task<PagedClanWarLogs> GetWarLogAsync(string clanTag, ClanWarLogFilter clanWarLogFilter = null);
 
         Task<ClanCurrentWar> GetCurrentWar(string clanTag);
+        Task<ClanCurrentRiverRace> GetCurrentRiverRace(string clanTag);
+
+        Task<PagedRiverRaceLog> GetRiverRaceLogAsync(string clanTag, RiverRaceLogFilter riverRaceLogFilter = null);
     }
 }

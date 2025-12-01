@@ -12,6 +12,8 @@ namespace Pekka.ClashRoyaleApi.Client
         public const string MemberUrl = "members";
         public const string WarlogUrl = "warlog";
         public const string CurrentWarUrl = "currentwar";
+        public const string CurrentRiverRaceUrl = "currentriverrace";
+        public const string RiverRaceLogUrl = "riverracelog";
 
         public const string TournamentUrl = "tournaments";
 
@@ -30,8 +32,10 @@ namespace Pekka.ClashRoyaleApi.Client
 
         private static readonly string ClanTemplate = $"{ClanUrl}/{{0}}";
         private static readonly string MemberTemplate = $"{ClanUrl}/{{0}}/{MemberUrl}";
-        private static readonly string WarlogTemplate = $"{ClanUrl}/{{0}}/{WarlogUrl}";
+        private static readonly string WarlogTemplate = $"{ClanUrl}/{{0}}/{WarlogUrl}"; 
+        private static readonly string RiverRaceLogTemplate = $"{ClanUrl}/{{0}}/{RiverRaceLogUrl}"; 
         private static readonly string CurrentWarTemplate = $"{ClanUrl}/{{0}}/{CurrentWarUrl}";
+        private static readonly string CurrentRiverRaceTemplate = $"{ClanUrl}/{{0}}/{CurrentRiverRaceUrl}";
 
         private static readonly string TournamentTemplate = $"{TournamentUrl}/{{0}}";
 
@@ -69,10 +73,19 @@ namespace Pekka.ClashRoyaleApi.Client
         {
             return string.Format(WarlogTemplate, HttpUtility.UrlEncode(clanTag));
         }
+        public static string GetRiverRaceLogUrl(string clanTag)
+        {
+            return string.Format(RiverRaceLogTemplate, HttpUtility.UrlEncode(clanTag));
+        }
 
         public static string GetCurrentWarUrl(string clanTag)
         {
             return string.Format(CurrentWarTemplate, HttpUtility.UrlEncode(clanTag));
+        }
+
+        public static string GetCurrentRiverRaceUrl(string clanTag)
+        {
+            return string.Format(CurrentRiverRaceTemplate, HttpUtility.UrlEncode(clanTag));
         }
 
         public static string GetTournamentUrl(string tournamentTag)
