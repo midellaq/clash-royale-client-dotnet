@@ -13,9 +13,10 @@ namespace Pekka.ClashRoyaleApi.Client.Models.PlayerModels
         public int ExpLevel { get; set; }
 
         public int ExpPoints { get; set; }
+        public int TotalExpPoints { get; set; }
         public int StarPoints { get; set; }
         public int Trophies { get; set; }
-
+        public int LegacyTrophyRoadHighScore { get; set; }
         public int BestTrophies { get; set; }
 
         public int Wins { get; set; }
@@ -57,9 +58,19 @@ namespace Pekka.ClashRoyaleApi.Client.Models.PlayerModels
         public PlayerAchievement[] Achievements { get; set; }
 
         public PlayerCard[] Cards { get; set; }
+        
+        public PlayerCard[] SupportCards { get; set; }
 
         public PlayerCard[] CurrentDeck { get; set; }
 
+        public PlayerCard[] CurrentDeckSupportCards { get; set; }
+
         public PlayerCurrentFavoriteCard CurrentFavouriteCard { get; set; }
+        
+        public PathOfLegendSeasonResult CurrentPathOfLegendSeasonResult { get; set; }  
+        public PathOfLegendSeasonResult LastPathOfLegendSeasonResult { get; set; }  
+        public PathOfLegendSeasonResult BestPathOfLegendSeasonResult { get; set; } 
+        
+        public PlayerProgress Progress { get; set; }
     }
 }
